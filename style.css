@@ -39,6 +39,7 @@ img {
     max-width: 100%;
     display: block;
 }
+
 .logo img {
     max-width: 155px;
     display: block;
@@ -104,7 +105,7 @@ input, button, textarea, select {
 body {
     font-family: "Euclid Square", sans-serif;
     font-weight: normal;
-    letter-spacing: 0.4px;
+    letter-spacing: normal;
 }
 
 .container{
@@ -439,12 +440,11 @@ button:hover{
     border: 3px solid #C09553;
 }
 
-/*Services styles*/
+/* certain services styles*/
 
 .services{
     position: relative;
 }
-
 
 .services .swiper-services{
     width: 100%;
@@ -457,6 +457,7 @@ button:hover{
     grid-row: 1 / 1;
     grid-column: 1 / 1;
 }
+
 .services .services-item-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -472,7 +473,7 @@ button:hover{
     justify-content: center;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto 100%;
+    background-size: cover;
     position: relative;
     z-index: 0;
     transition: .6s ease;
@@ -480,6 +481,7 @@ button:hover{
     /* min-height: 355px; */
     font-size: 18px;
     padding: 0 20px;
+    overflow: hidden;
 }
 
 .services .services-item-container .services-item::before{
@@ -495,8 +497,22 @@ button:hover{
     transition: .6s ease;
 }
 
-.services .services-item-container .services-item:hover{
-    background-size: auto 130%;
+.services .services-item-container .services-item::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    background-size: cover;
+    transform-origin: center;
+    transition: transform .4s ease-in-out;
+    z-index: -2;
+}
+
+.services .services-item-container .services-item:hover::after{
+    transform: scale(1.1);
 }
 
 .services .services-item-container .services-item:hover::before{
@@ -998,6 +1014,10 @@ footer form textarea{
     --swiper-theme-color: #C09553;
 }
 
+.our-projects .buttons-swiper .swiper-pagination-progressbar{
+    height: 3px;
+}
+
 .our-projects .buttons-swiper .swiper-wrapper{
     margin-top: 20px;
 }
@@ -1022,4 +1042,88 @@ footer form textarea{
 
 .our-projects .buttons-swiper button:hover{
     color: #C09553;
+}
+
+/* services styles */
+
+.services-page {
+    position: relative;
+}
+
+
+.services-page h1{
+    margin-top: 50px;
+    margin-bottom: 90px;
+}
+
+.services-page .services-page-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.services-page .services-page-container .services-page-item::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #242424;
+    opacity: 0.7;
+    z-index: -1;
+    top: 0;
+    transition: .6s ease;
+}
+
+.services-page .services-page-container .services-page-item{
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+    transition: .6s ease;
+    justify-self: stretch;
+    /* min-height: 355px; */
+    font-size: 18px;
+    padding: 0 20px;
+    height: 23vw;
+    overflow: hidden;
+}
+
+.services-page .services-page-container .services-page-item span{
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.services-page .services-page-container .services-page-item::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    background-size: cover;
+    transform-origin: center;
+    transition: transform .4s ease-in-out;
+    z-index: -2;
+}
+
+.services-page .services-page-container .services-page-item:hover::after{
+    transform: scale(1.1);
+}
+
+.services-page .services-page-container .services-page-item:hover::before{
+    opacity: 0.3;
+}
+
+.services-page-description{
+    margin-top: 50px;
 }
